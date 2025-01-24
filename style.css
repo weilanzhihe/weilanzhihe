@@ -23,16 +23,19 @@ body {
 h1, p, button {
     margin: 10px 0; /* 添加一些间距 */
 }
-.bg-image,
-      .inner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 450px;
-        height: 253px;
-        z-index: -1;
-      }
-      .inner {
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(5px);
-      }
+.bg {
+    position: fixed;
+    width: 450px;
+    height: 253px;
+    overflow: hidden;
+  }
+  .bg-image {
+    width: 100%;
+    filter: blur(5px);
+  }
+  .bg-image::after {
+    content: "";
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
