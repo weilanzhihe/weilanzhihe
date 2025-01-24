@@ -10,6 +10,10 @@ body {
     margin: 0;
     background-color: #f0f0f0;
     flex-direction: column; /* 使元素纵向排列 */
+    background-image: url(CFB9675AA822D3C28DD33307D4FC61A0.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .container {
@@ -18,10 +22,4 @@ body {
 
 h1, p, button {
     margin: 10px 0; /* 添加一些间距 */
-}
-#file-directory {
-    background-image: url(CFB9675AA822D3C28DD33307D4FC61A0.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
 }
