@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="9f70f111b26b7581c6ed595284cadf29a3befd5e.jpg@128w_128h_1c_1s.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哔哩哔哩-东風の奇奇怪怪的小站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('CFB9675AA822D3C28DD33307D4FC61A0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        .content {
+            max-width: 90%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 弹窗样式 */
+        .welcome-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .welcome-modal.active {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .welcome-modal.closing {
+            animation: slideOut 0.5s ease forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            0% {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+        }
+
+        .welcome-modal h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .welcome-modal p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .welcome-modal button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .welcome-modal button:hover {
+            background: #0056b3;
+        }
+
+        /* 遮罩层 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* 跳转按钮样式 */
+        .jump-button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .jump-button:hover {
+            background-color: #45a049;
+        }
+
+        .jump-button:active {
+            background-color: #3d8b40;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <form>
+            <label for="choice" style="font-size: 20px;">你是不是东風的芬斯？</label>
+            <select id="choice" name="choice">
+                <option value="no">不是</option>
+                <option value="yes">是的</option>
+            </select>
+        </form>
+        <h4>搞完别忘了截图发到458802744！！！</h4>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="welcome-modal">
+        <h2>哇偶，这是一个b站up：东風（找群员写的一个）的小站~</h2>
+        <p>去哔哩哔哩关注我（她）吧！！</p>
+        <button onclick="closeWelcomeModal()">我知道了！</button>
+        <button class="jump-button" onclick="redirectToWebsite()">现在就关注！awa</button>
+    </div>
+
+    <script>
+        function showWelcomeModal() {
+            const modal = document.querySelector('.welcome-modal');
+            const overlay = document.querySelector('.overlay');
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeWelcomeModal() {
+            const modal = document.querySelector('.welcome-modal');
+            modal.classList.add('closing');
+            
+            setTimeout(() => {
+                modal.classList.remove('active', 'closing');
+                document.querySelector('.overlay').classList.remove('active');
+            }, 500);
+        }
+
+        function redirectToWebsite() {
+            window.location.href = "https://space.bilibili.com/345670302";
+        }
+
+        window.onload = showWelcomeModal;
+    </script>
+</body>
+</html>
