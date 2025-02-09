@@ -124,7 +124,6 @@
             background: #0056b3;
         }
 
-        /* 遮罩层 */
         .overlay {
             position: fixed;
             top: 0;
@@ -141,7 +140,6 @@
             display: block;
         }
 
-        /* 跳转按钮样式 */
         .jump-button {
             display: inline-block;
             padding: 12px 24px;
@@ -162,6 +160,24 @@
         .jump-button:active {
             background-color: #3d8b40;
         }
+
+        .site-footer {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+    }
+
+    .bilibili {
+        color: #FB7299; 
+        font-weight: bold;
+    }
     </style>
 </head>
 <body>
@@ -183,6 +199,10 @@
         <button onclick="closeWelcomeModal()">我知道了！</button>
         <button class="jump-button" onclick="redirectToWebsite()">现在就关注！awa</button>
     </div>
+
+    <footer class="site-footer">
+        本站由 <span class="bilibili">bilibili</span> 東風强力驱动
+    </footer>
 
     <script>
         function showWelcomeModal() {
